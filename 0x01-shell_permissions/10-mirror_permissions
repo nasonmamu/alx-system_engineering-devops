@@ -1,0 +1,2 @@
+#!/bin/bash
+chower --refence -olleh hello
