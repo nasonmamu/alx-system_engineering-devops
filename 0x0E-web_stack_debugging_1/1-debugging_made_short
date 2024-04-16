@@ -1,4 +1,8 @@
- nginx to run and listen to port 80
- service nginx start
- curl 0:80
- service nginx status | grep "nginx is not running"
+#!/usr/bin/env bash
+# This script configures Nginx to listen on port 80
+
+apt update
+apt install -y nginx
+service nginx start
+sed -i 's/^\(\s*listen\s*\)80/\180/' /etc/nginx/sites-available/default
+service nginx restart
