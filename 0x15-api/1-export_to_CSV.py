@@ -13,7 +13,6 @@ if __name__ == "__main__":
 
     with open("{}.csv".format(user_id), "w", newline="") as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        writer.writerow(["User ID", "Username", "Completed", "Task Title"])  # Correct output formatting
-        for t in todos:
-            completed_status = "Yes" if t.get("completed") else "No"  # Correct user ID, username, and completed status
-            writer.writerow([user_id, username, completed_status, t.get("title")])  # Correct number of tasks in CSV
+        [writer.writerow(
+            [user_id, username, t.get("completed"), t.get("title")]
+         ) for t in todos]
